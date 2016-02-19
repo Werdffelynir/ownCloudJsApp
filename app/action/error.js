@@ -29,16 +29,17 @@
 
     o.inline = function (text){
 
-        var title = 'Application throw error';
+        var title = 'Application throw error',
+            errorinline = '#app-content-errorinline';
 
         if(text){
-            $(app.dom.inlineError)
+            $(errorinline)
                 .show()
                 .html('Application throw error: ' + text).show();
         }else{
-            $(app.dom.inlineError)
+            $(errorinline)
                 .hide()
-                .html();
+                .html("");
         }
 
     };

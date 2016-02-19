@@ -75,30 +75,19 @@ var app = app || {
      * Running when all scripts loaded is successfully
      */
 	function onLoaded() {
+        
 		console.log('application loaded...');
 
-        if(typeof gantt === 'object'){
-
-            /**
-             * Set application options
-             */
-            app.uid = OC.currentUser == app.uid ? app.uid : null;
+        /**
+         * Set application options
+         */
+        app.uid = OC.currentUser == app.uid ? app.uid : null;
 
 
-            /**
-             * Start controller handler
-             */
-            app.controller.main.construct();
-
-
-        }else{
-
-            /**
-             * Show error message on main content
-             */
-            app.action.error.page("JavaScript library dhtmlxGantt not loaded. Object gantt is: " + (typeof gantt));
-
-        }
+        /**
+         * Start controller handler
+         */
+        app.controller.main.construct();
 
 	}
 
