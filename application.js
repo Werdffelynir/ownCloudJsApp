@@ -22,61 +22,61 @@ var app = app || {
         /*DOM Elements*/
         dom: {},
 
-		/*dependent controllers*/
-		controller: {
-			main: {}
-		},
+        /*dependent controllers*/
+        controller: {
+            main: {}
+        },
 
-		/*dependent modules*/
-		module: {
-			util: {}
-		},
+        /*dependent modules*/
+        module: {
+            util: {}
+        },
 
-		/*dependent actions*/
-		action: {
+        /*dependent actions*/
+        action: {
             error: {}
-		},
+        },
 
         /*db project data*/
         data: {
-			access:null,
-			errorinfo:null,
-			uid:null,
-		},
+            access:null,
+            errorinfo:null,
+            uid:null,
+        },
 
-		/*alias for app.module.util object*/
-		u:{},
+        /*alias for app.module.util object*/
+        u:{},
 
-	};
+    };
 
 (function ($, OC, app) {
 
-	var inc = new Inc(),
+    var inc = new Inc(),
         path = '/apps/' + app.name;
 
     inc.require(path+'/js/app/controller/main.js');
     inc.require(path+'/js/app/action/error.js');
-	inc.require(path+'/js/app/module/util.js');
-	inc.onerror = onError;
-	inc.onload = onLoaded;
-	inc.init();
+    inc.require(path+'/js/app/module/util.js');
+    inc.onerror = onError;
+    inc.onload = onLoaded;
+    inc.init();
 
     /**
      * Executed if any errors occur while loading scripts
      *
      * @param error
      */
-	function onError(error) {
-		console.error('Error on loading script. Message: ' + error);
+    function onError(error) {
+        console.error('Error on loading script. Message: ' + error);
         app.action.error.page('Error on loading script');
-	}
+    }
 
     /**
      * Running when all scripts loaded is successfully
      */
-	function onLoaded() {
+    function onLoaded() {
         
-		console.log('application loaded...');
+        console.log('application loaded...');
 
         /**
          * Set application options
@@ -89,9 +89,9 @@ var app = app || {
          */
         app.controller.main.construct();
 
-	}
+    }
 
-	/*app methods*/
+    /*app methods*/
 
     /**
      * The method requests to the server. The application should use this method for asynchronous requests
